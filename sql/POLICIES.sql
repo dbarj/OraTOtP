@@ -50,6 +50,7 @@ BEGIN
     function_schema  => '&_vUsername',
     policy_function  => 'FILTER_ACCESS',
     statement_types  => 'INDEX, INSERT, UPDATE, DELETE',
+    update_check => TRUE,   /* Required for 12.2+ (MOS Doc ID 2327695.1) */
     enable => TRUE,
     static_policy => TRUE
    );
@@ -64,6 +65,7 @@ BEGIN
     function_schema  => '&_vUsername',
     policy_function  => 'FILTER_ACCESS',
     statement_types  => 'INDEX, INSERT, UPDATE, DELETE',
+    update_check => TRUE,   /* Required for 12.2+ (MOS Doc ID 2327695.1) */
     enable => TRUE,
     static_policy => TRUE
    );
@@ -78,6 +80,7 @@ BEGIN
     function_schema  => '&_vUsername',
     policy_function  => 'FILTER_ACCESS',
     statement_types  => 'INDEX, INSERT, UPDATE, DELETE',
+    update_check => TRUE,   /* Required for 12.2+ (MOS Doc ID 2327695.1) */
     enable => TRUE,
     static_policy => TRUE
    );
