@@ -6,3 +6,11 @@ GRANT EXECUTE ON DBMS_CRYPTO TO &_vUsername -- To encrypt user Keys
 /
 GRANT SELECT ON V_$SESSION TO &_vUsername   -- For remembering user login data (machine name, os user, terminal, etc)
 /
+
+BEGIN
+   $IF (DBMS_DB_VERSION.VERSION=12 AND DBMS_DB_VERSION.RELEASE=2) OR DBMS_DB_VERSION.VERSION>12 $THEN
+      EXECUTE IMMEDIATE 'GRANT ADMINISTER DATABASE TRIGGER TO &_vUsername';  -- Required for 12.2+ (MOS Doc ID 2275535.1)
+   $ELSE NULL;
+   $END
+END;
+/
